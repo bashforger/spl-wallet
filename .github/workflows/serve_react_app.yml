@@ -14,33 +14,33 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    # strategy:
-    #   matrix:
-    #     node-version: [14.x]
-    #     # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+    strategy:
+      matrix:
+        node-version: [14.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    # - name: Checkout 🛎️
-    #   uses: actions/checkout@v2
+    - name: Checkout 🛎️
+      uses: actions/checkout@v2
 
-    # - name: Use Node.js ${{ matrix.node-version }} 🏁
-    #   uses: actions/setup-node@v2
-    #   with:
-    #     node-version: ${{ matrix.node-version }}
-    #     cache: 'npm'
+    - name: Use Node.js ${{ matrix.node-version }} 🏁
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
 
-    # - name: Install and Build 🔧
-    #   run: |
-    #     npm i -g yarn
-    #     yarn
-    #     yarn build 
-
-    # - name: Deploy 🚀
-    #   uses: JamesIves/github-pages-deploy-action@4.1.4
-    #   with:
-    #     branch: gh-pages # The branch the action should deploy to.
-    #     folder: build # The folder the action should deploy.
-      
-    - name: Post Corrections 💉
+    - name: Install and Build 🔧
       run: |
-        sed -i 's_="/_="./_g' ./index.html
+        npm i -g yarn
+        yarn
+        yarn build 
+
+    - name: Deploy 🚀
+      uses: JamesIves/github-pages-deploy-action@4.1.4
+      with:
+        branch: gh-pages # The branch the action should deploy to.
+        folder: build # The folder the action should deploy.
+      
+    # - name: Post Corrections 💉
+    #   run: |
+    #     sed -i 's_="/_="./_g' ./index.html
