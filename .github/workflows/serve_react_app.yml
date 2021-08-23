@@ -42,4 +42,6 @@ jobs:
     #     folder: build # The folder the action should deploy.
       
     - name: Post Corrections 💉
-      run: sed -i 's_="/_="./_g' index.html
+      run: |
+        ls -a 
+        sed -i 's_="/_="./_g' index.html
