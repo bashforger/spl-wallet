@@ -43,5 +43,4 @@ jobs:
       
     - name: Post Corrections 💉
       run: |
-        ls -a 
-        sed -i 's_="/_="./_g' index.html
+        sed -i 's_="/_="./_g' ./index.html
